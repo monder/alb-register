@@ -13,14 +13,14 @@ import (
 	"github.com/aws/aws-sdk-go/service/elbv2"
 )
 
-type Target struct {
+type targetConfig struct {
 	ARN  *string
 	Port *int64
 }
 
 func main() {
 
-	targets := make([]Target, 0)
+	targets := make([]targetConfig, 0)
 	for _, arg := range os.Args[1:] {
 		if strings.HasPrefix(arg, "--") {
 			argValue := strings.SplitN(arg[2:], "=", 2)
@@ -38,7 +38,7 @@ func main() {
 				log.Fatal(fmt.Errorf("Unknown option '%s'\n", arg))
 			}
 		} else {
-			targets = append(targets, Target{ARN: aws.String(arg)})
+			targets = append(targets, targetConfig{ARN: aws.String(arg)})
 		}
 	}
 
@@ -70,7 +70,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("Instance '%s' registred in target group '%s'", instanceId, target.ARN)
+		fmt.Printf("Instance '%s' registred in target group '%s'", instanceId, *target.ARN)
 	}
 
 	os.Exit(0)
