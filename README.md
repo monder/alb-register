@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/monder/alb-register.svg?maxAge=2592000&style=flat-square)]()
 [![GitHub tag](https://img.shields.io/github/tag/monder/alb-register.svg?style=flat-square)]()
 
-An `ACI` tthat register current instance in AWS [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/)
+An `ACI` that register current instance in AWS [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/)
 
 ## Images
 Signed `ACI`s for `linux-arm64` are available at `monder.cc/alb-register` with versions matching git tags.
